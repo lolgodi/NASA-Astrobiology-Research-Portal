@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NASA Astrobiology Research Portal</title>
+
+<style>
+body {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  margin: 0;
+  background: #f4f6f8;
+  color: #1b2a41;
+}
+
+/* ===== STUDY PAGE ===== */
+#studySite {
+  max-width: 960px;
+  margin: 60px auto;
+  padding: 45px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+#studySite h1 {
+  font-size: 2.6rem;
+  border-bottom: 3px solid #0b3d91;
+  padding-bottom: 10px;
+}
+
+#studySite h2 {
+  color: #0b3d91;
+  margin-top: 35px;
+}
+
+#studySite img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin: 30px 0;
+}
+
+footer {
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ===== FOOTER LOGIN ===== */
+#passwordArea {
+  margin-top: 15px;
+  padding: 12px;
+  background: #eef1f5;
+  border-radius: 6px;
+  max-width: 360px;
+}
+
+#passwordArea label {
+  font-size: 0.8rem;
+  color: #444;
+}
+
+#passwordArea input,
+#passwordArea button {
+  width: 100%;
+  padding: 6px;
+  margin-top: 6px;
+}
+
+/* ===== SECRET HUB ===== */
+#hubSite {
+  display: none;
+  min-height: 100vh;
+  background: #0a0f1d;
+  color: #00ff66;
+  padding: 40px;
+}
+
+#hubSite h1 {
+  text-align: center;
+}
+
+#hubSite section {
+  margin-bottom: 35px;
+}
+
+#hubSite a,
+#hubSite button {
+  color: #00ff66;
+  background: none;
+  border: 1px solid #00ff66;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== NASA STUDY SITE ===== -->
+<main id="studySite">
+  <h1>NASA Astrobiology Research Portal</h1>
+
+  <p>
+    The NASA Astrobiology Research Portal provides peer-reviewed scientific
+    studies focused on the origin, evolution, and future of life in the
+    universe. Research integrates biology, chemistry, geology, and planetary
+    science.
+  </p>
+
+  <h2>Mission Overview</h2>
+  <p>
+    NASA’s astrobiology program investigates whether life exists beyond Earth,
+    how planetary environments evolve, and how biosignatures may be detected
+    on exoplanets and moons such as Europa, Enceladus, and Mars.
+  </p>
+
+  <h2>Current Research Areas</h2>
+  <ul>
+    <li>Microbial survival in extreme environments</li>
+    <li>Mars regolith chemistry and biosignatures</li>
+    <li>Subsurface oceans on icy moons</li>
+    <li>Exoplanet atmospheric analysis</li>
+    <li>Organic molecule formation in space</li>
+  </ul>
+
+  <h2>Educational Outreach</h2>
+  <p>
+    This portal supports STEM education initiatives, offering curriculum-aligned
+    research summaries for secondary and post-secondary institutions.
+  </p>
+
+  <footer>
+    <p>© 2025 National Aeronautics and Space Administration</p>
+    <p>Office of Space Science & Astrobiology</p>
+    <p>Last reviewed: September 2025</p>
+
+    <!-- SECRET LOGIN -->
+    <div id="passwordArea">
+      <label>for owner access</label>
+      <input type="password" id="passwordInput" placeholder="Access key">
+      <button id="submitPassword">Verify</button>
+    </div>
+  </footer>
+</main>
+
+<!-- ===== SECRET GAMING HUB ===== -->
+<section id="hubSite">
+  <h1>🎮 adam's Secret Hub</h1>
+  <p style="text-align:center;">Unblocked games & proxies</p>
+
+  <section>
+    <h2>Games</h2>
+    <button onclick="openAboutBlank('https://theminer.netlify.app/')"> eaglercraft</button>
+    <button onclick="openAboutBlank('https://www.msn.com/en-us/play')">Unblocked Games</button>
+  </section>
+
+  <section>
+    <h2>Proxies</h2>
+    <button onclick="openAboutBlank('https://class.desmos.live.cdn.cloudflare.net/&')">Proxy 1</button>
+    <button onclick="openAboutBlank('https://lolgod15try.ndr.cl/')">Proxy 2</button>
+  </section>
+
+  <section>
+    <h2>Emergency</h2>
+    <p>Press <strong>Shift + H</strong> to hide hub instantly.</p>
+  </section>
+</section>
+
+<script>
+const correctPassword = "dingdongaa";
+
+const studySite = document.getElementById("studySite");
+const hubSite = document.getElementById("hubSite");
+const passwordInput = document.getElementById("passwordInput");
+const submitPassword = document.getElementById("submitPassword");
+
+// Unlock ONLY when password is entered
+submitPassword.onclick = () => {
+  if (passwordInput.value === correctPassword) {
+    studySite.style.display = "none";
+    hubSite.style.display = "block";
+  } else {
+    alert("Invalid access key");
+    passwordInput.value = "";
+  }
+};
+
+// Panic key
+document.addEventListener("keydown", e => {
+  if (e.shiftKey && e.key.toLowerCase() === "h") {
+    hubSite.style.display = "none";
+    studySite.style.display = "block";
+  }
+});
+
+// about:blank opener
+function openAboutBlank(url) {
+  const w = window.open("about:blank", "_blank");
+  if (!w) return alert("Popup blocked");
+  w.document.write(
+    `<iframe src="${url}" style="border:none;width:100%;height:100%"></iframe>`
+  );
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
