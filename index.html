@@ -13,7 +13,7 @@ body {
   color: #1b2a41;
 }
 
-/* ===== STUDY PAGE ===== */
+/* ===== STUDY SITE ===== */
 #studySite {
   max-width: 960px;
   margin: 60px auto;
@@ -34,12 +34,6 @@ body {
   margin-top: 35px;
 }
 
-#studySite img {
-  max-width: 100%;
-  border-radius: 10px;
-  margin: 30px 0;
-}
-
 footer {
   margin-top: 50px;
   padding-top: 20px;
@@ -48,25 +42,37 @@ footer {
   color: #555;
 }
 
-/* ===== FOOTER LOGIN ===== */
-#passwordArea {
-  margin-top: 15px;
-  padding: 12px;
-  background: #eef1f5;
-  border-radius: 6px;
-  max-width: 360px;
+/* clickable dot (NOT underlined) */
+.secret-dot {
+  cursor: pointer;
+  font-weight: normal;
 }
 
-#passwordArea label {
-  font-size: 0.8rem;
-  color: #444;
+/* ===== PASSWORD POPUP ===== */
+#passwordModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
-#passwordArea input,
-#passwordArea button {
+#passwordBox {
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+#passwordBox input,
+#passwordBox button {
   width: 100%;
-  padding: 6px;
-  margin-top: 6px;
+  margin-top: 10px;
+  padding: 8px;
 }
 
 /* ===== SECRET HUB ===== */
@@ -78,20 +84,12 @@ footer {
   padding: 40px;
 }
 
-#hubSite h1 {
-  text-align: center;
-}
-
-#hubSite section {
-  margin-bottom: 35px;
-}
-
-#hubSite a,
 #hubSite button {
-  color: #00ff66;
   background: none;
   border: 1px solid #00ff66;
+  color: #00ff66;
   padding: 8px 12px;
+  margin: 6px 0;
   cursor: pointer;
 }
 </style>
@@ -99,22 +97,20 @@ footer {
 
 <body>
 
-<!-- ===== NASA STUDY SITE ===== -->
+<!-- ===== STUDY PAGE ===== -->
 <main id="studySite">
   <h1>NASA Astrobiology Research Portal</h1>
 
   <p>
-    The NASA Astrobiology Research Portal provides peer-reviewed scientific
-    studies focused on the origin, evolution, and future of life in the
-    universe. Research integrates biology, chemistry, geology, and planetary
-    science.
+    NASA’s astrobiology program investigates whether life exists beyond Earth,
+    how planetary environments evolve, and how biosignatures may be detected
+    on exoplanets and moons such as Europa, Enceladus, and Mars.
   </p>
 
   <h2>Mission Overview</h2>
   <p>
-    NASA’s astrobiology program investigates whether life exists beyond Earth,
-    how planetary environments evolve, and how biosignatures may be detected
-    on exoplanets and moons such as Europa, Enceladus, and Mars.
+    Research integrates biology, chemistry, geology, and planetary science
+    to understand life’s origins and distribution in the universe.
   </p>
 
   <h2>Current Research Areas</h2>
@@ -126,47 +122,37 @@ footer {
     <li>Organic molecule formation in space</li>
   </ul>
 
-  <h2>Educational Outreach</h2>
-  <p>
-    This portal supports STEM education initiatives, offering curriculum-aligned
-    research summaries for secondary and post-secondary institutions.
-  </p>
-
   <footer>
     <p>© 2025 National Aeronautics and Space Administration</p>
     <p>Office of Space Science & Astrobiology</p>
-    <p>Last reviewed: September 2025</p>
-
-    <!-- SECRET LOGIN -->
-    <div id="passwordArea">
-      <label>for owner access</label>
-      <input type="password" id="passwordInput" placeholder="Access key">
-      <button id="submitPassword">Verify</button>
-    </div>
+    <p>
+      Last reviewed: September 2025<span class="secret-dot" id="secretDot">.</span>
+    </p>
   </footer>
 </main>
+
+<!-- ===== PASSWORD POPUP ===== -->
+<div id="passwordModal">
+  <div id="passwordBox">
+    <h3>Restricted Access</h3>
+    <input type="password" id="passwordInput" placeholder="Access key">
+    <button id="submitPassword">Verify</button>
+  </div>
+</div>
 
 <!-- ===== SECRET GAMING HUB ===== -->
 <section id="hubSite">
   <h1>🎮 adam's Secret Hub</h1>
-  <p style="text-align:center;">Unblocked games & proxies</p>
 
-  <section>
-    <h2>Games</h2>
-    <button onclick="openAboutBlank('https://theminer.netlify.app/')"> eaglercraft</button>
-    <button onclick="openAboutBlank('https://www.msn.com/en-us/play')">Unblocked Games</button>
-  </section>
+  <h2>Games</h2>
+  <button onclick="openAboutBlank('https://theminer.netlify.app/')">Eaglercraft</button>
+  <button onclick="openAboutBlank('https://www.msn.com/en-us/play')">Games Hub</button>
 
-  <section>
-    <h2>Proxies</h2>
-    <button onclick="openAboutBlank('https://class.desmos.live.cdn.cloudflare.net/&')">Proxy 1</button>
-    <button onclick="openAboutBlank('https://lolgod15try.ndr.cl/')">Proxy 2</button>
-  </section>
+  <h2>Proxies</h2>
+  <button onclick="openAboutBlank('https://class.desmos.live.cdn.cloudflare.net/&')">Proxy 1</button>
+  <button onclick="openAboutBlank('https://lolgod15try.ndr.cl/')">Proxy 2</button>
 
-  <section>
-    <h2>Emergency</h2>
-    <p>Press <strong>Shift + H</strong> to hide hub instantly.</p>
-  </section>
+  <p>Press <strong>Shift + H</strong> to instantly hide.</p>
 </section>
 
 <script>
@@ -174,12 +160,17 @@ const correctPassword = "dingdongaa";
 
 const studySite = document.getElementById("studySite");
 const hubSite = document.getElementById("hubSite");
+const modal = document.getElementById("passwordModal");
 const passwordInput = document.getElementById("passwordInput");
-const submitPassword = document.getElementById("submitPassword");
 
-// Unlock ONLY when password is entered
-submitPassword.onclick = () => {
+document.getElementById("secretDot").onclick = () => {
+  modal.style.display = "flex";
+  passwordInput.focus();
+};
+
+document.getElementById("submitPassword").onclick = () => {
   if (passwordInput.value === correctPassword) {
+    modal.style.display = "none";
     studySite.style.display = "none";
     hubSite.style.display = "block";
   } else {
@@ -196,13 +187,11 @@ document.addEventListener("keydown", e => {
   }
 });
 
-// about:blank opener
+// about:blank
 function openAboutBlank(url) {
   const w = window.open("about:blank", "_blank");
   if (!w) return alert("Popup blocked");
-  w.document.write(
-    `<iframe src="${url}" style="border:none;width:100%;height:100%"></iframe>`
-  );
+  w.document.write(`<iframe src="${url}" style="border:none;width:100%;height:100%"></iframe>`);
 }
 </script>
 
